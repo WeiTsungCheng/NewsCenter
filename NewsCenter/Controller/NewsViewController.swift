@@ -17,13 +17,18 @@ final class NewsViewController: UIViewController {
     
     var cellViewModels: [ArticleCellViewModel] = []
     
-    
     private lazy var searchController: UISearchController = {
         
         let controller = UISearchController(searchResultsController: nil)
         controller.searchResultsUpdater = self
         controller.obscuresBackgroundDuringPresentation = false
-        controller.searchBar.placeholder = "搜尋"
+        
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+       
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: "搜尋...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        
+        UIBarButtonItem.appearance(whenContainedInInstancesOf:[UISearchBar.self]).title = "取消"
+    
         return controller
     }()
     
@@ -35,6 +40,7 @@ final class NewsViewController: UIViewController {
     lazy var scrollView: UIScrollView = {
         let srv = UIScrollView()
         srv.showsVerticalScrollIndicator = false
+        srv.showsHorizontalScrollIndicator = false
         return srv
     }()
     
@@ -49,6 +55,7 @@ final class NewsViewController: UIViewController {
     
     lazy var tableView: UITableView = {
         let tbv = UITableView()
+        tbv.backgroundColor = .white
         tbv.delegate = self
         tbv.dataSource = self
         tbv.separatorStyle = .none
@@ -60,6 +67,7 @@ final class NewsViewController: UIViewController {
     
     lazy var spinner: UIActivityIndicatorView = {
         let sp = UIActivityIndicatorView(style: .medium)
+        sp.color = .brown
         return sp
     }()
     
@@ -108,23 +116,18 @@ final class NewsViewController: UIViewController {
         stackView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview()
-            make.height.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
-        
         
         for country in NewsAPI.Country.allCases {
             let btn = CountryButton(country: country)
-            btn.setTitle(country.rawValue, for: .normal)
-            btn.setTitleColor(.black, for: .normal)
             btn.snp.makeConstraints { make in
-                make.width.equalTo(100)
+                make.width.equalTo(120)
             }
             btn.addTarget(self, action: #selector(getNews), for: .touchUpInside)
             stackView.addArrangedSubview(btn)
         }
-        
-        stackView.layoutIfNeeded()
-        scrollView.contentSize = CGSize(width: stackView.frame.width, height: stackView.frame.height)
+
     }
     
     @objc func getNews(_ sender: CountryButton) {
@@ -206,8 +209,9 @@ class CountryButton: UIButton {
     }
     
     private func setupUI() {
-        self.backgroundColor = .systemBlue
-        self.setTitleColor(.white, for: .normal)
+        backgroundColor = .systemGreen
+        setTitle(country.rawValue, for: .normal)
+        setTitleColor(.white, for: .normal)
     }
     
 }

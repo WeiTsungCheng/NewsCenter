@@ -65,6 +65,7 @@ final class ArticleTableViewCell: UITableViewCell {
     }
     
     func setupUI() {
+        contentView.backgroundColor = .white
         contentView.addSubview(newsImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(newsDescription)
