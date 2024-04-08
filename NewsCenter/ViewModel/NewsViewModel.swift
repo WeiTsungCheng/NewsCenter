@@ -40,12 +40,12 @@ final class NewsViewModel {
             .sink { [unowned self] event in
                 switch event {
                 case .viewDidLoad:
-                    output.send(.spinner(state: true))
+                    
                     getNews(country: selectCountry)
                     
                 case .searchBar(text: let searchText):
                     self.searchText = searchText
-                
+                    
                 case .countrySelect(country: let country):
                     self.selectCountry = country
                     getNews(country: country)
@@ -56,6 +56,7 @@ final class NewsViewModel {
         Publishers.CombineLatest($articles, $searchText)
             .sink { completion in
                 print(completion)
+                
             } receiveValue: { [unowned self] (articles, text) in
                 
                 if !text.isEmpty {
@@ -65,8 +66,6 @@ final class NewsViewModel {
                 } else {
                     self.output.send(.setArticles(articles: articles))
                 }
-                
-                self.output.send(.spinner(state: false))
                 self.output.send(.updateView)
                 
             }.store(in: &cancellable)
@@ -77,9 +76,11 @@ final class NewsViewModel {
     
     private func getNews(country: NewsAPI.Country) {
         
+        output.send(.spinner(state: true))
         service.fetchNews(country: country)
             .sink { completion in
                 print(completion)
+                self.output.send(.spinner(state: false))
                 
             } receiveValue: { [unowned self] news in
                 self.articles = news.articles

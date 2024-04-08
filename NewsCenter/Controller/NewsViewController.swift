@@ -11,12 +11,6 @@ import SnapKit
 
 final class NewsViewController: UIViewController {
     
-    var cancellable = Set<AnyCancellable>()
-    
-    var viewModel: NewsViewModel?
-    
-    var cellViewModels: [ArticleCellViewModel] = []
-    
     private lazy var searchController: UISearchController = {
         
         let controller = UISearchController(searchResultsController: nil)
@@ -71,8 +65,13 @@ final class NewsViewController: UIViewController {
         return sp
     }()
     
-    private let output = PassthroughSubject<NewsViewModel.Input, Never>()
+    var cancellable = Set<AnyCancellable>()
     
+    var viewModel: NewsViewModel?
+    
+    var cellViewModels: [ArticleCellViewModel] = []
+    
+    private let output = PassthroughSubject<NewsViewModel.Input, Never>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,10 +85,10 @@ final class NewsViewController: UIViewController {
         
         self.view.backgroundColor = .white
         self.navigationItem.searchController = searchController
-        self.tableView.backgroundView = spinner
         
         view.addSubview(containerView)
         view.addSubview(tableView)
+        view.addSubview(spinner)
         
         containerView.snp.makeConstraints { make in
             make.height.equalTo(40)
@@ -103,6 +102,10 @@ final class NewsViewController: UIViewController {
             make.leading.equalTo(view.snp.leadingMargin)
             make.trailing.equalTo(view.snp.trailingMargin)
             make.bottom.equalTo(view.snp.bottomMargin)
+        }
+        
+        spinner.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
         }
         
         containerView.addSubview(scrollView)
@@ -164,7 +167,7 @@ final class NewsViewController: UIViewController {
     
 }
 
-extension NewsViewController: UITableViewDelegate { }
+extension NewsViewController: UITableViewDelegate {}
 
 extension NewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -189,29 +192,4 @@ extension NewsViewController: UISearchResultsUpdating {
             output.send(.searchBar(text: searchText))
         }
     }
-}
-
-
-
-class CountryButton: UIButton {
-    
-    var country: NewsAPI.Country
-    
-    required init(country: NewsAPI.Country) {
-        self.country = country
-        super.init(frame: CGRect.zero)
-        setupUI()
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupUI() {
-        backgroundColor = .systemGreen
-        setTitle(country.rawValue, for: .normal)
-        setTitleColor(.white, for: .normal)
-    }
-    
 }

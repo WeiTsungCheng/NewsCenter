@@ -23,6 +23,7 @@
 		F4D656A32BC25337005621D4 /* UITableViewCell+CellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D656A12BC25337005621D4 /* UITableViewCell+CellIdentifier.swift */; };
 		F4D656A52BC2559D005621D4 /* ArticleCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D656A42BC2559D005621D4 /* ArticleCellViewModel.swift */; };
 		F4D656B82BC417E8005621D4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4D656B72BC417E8005621D4 /* SnapKit */; };
+		F4D656BE2BC44E2F005621D4 /* CountryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D656BD2BC44E2F005621D4 /* CountryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,6 +55,7 @@
 		F4D656A02BC25337005621D4 /* UITableView+Dequeueing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeueing.swift"; sourceTree = "<group>"; };
 		F4D656A12BC25337005621D4 /* UITableViewCell+CellIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+CellIdentifier.swift"; sourceTree = "<group>"; };
 		F4D656A42BC2559D005621D4 /* ArticleCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCellViewModel.swift; sourceTree = "<group>"; };
+		F4D656BD2BC44E2F005621D4 /* CountryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				F421ACA02B9E26A300FB5380 /* AppDelegate.swift */,
 				F421ACA22B9E26A300FB5380 /* SceneDelegate.swift */,
+				F4D656BC2BC44E15005621D4 /* CustomUI */,
 				F4D6569F2BC25337005621D4 /* Helpers */,
 				F4D6569C2BC2506C005621D4 /* Service */,
 				F4D6569B2BC25058005621D4 /* Model */,
@@ -153,6 +156,14 @@
 				F4D656A12BC25337005621D4 /* UITableViewCell+CellIdentifier.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F4D656BC2BC44E15005621D4 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				F4D656BD2BC44E2F005621D4 /* CountryButton.swift */,
+			);
+			path = CustomUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +248,7 @@
 			files = (
 				F4D656A32BC25337005621D4 /* UITableViewCell+CellIdentifier.swift in Sources */,
 				F4D656A22BC25337005621D4 /* UITableView+Dequeueing.swift in Sources */,
+				F4D656BE2BC44E2F005621D4 /* CountryButton.swift in Sources */,
 				F421ACA52B9E26A300FB5380 /* NewsViewController.swift in Sources */,
 				F4D6569E2BC250A7005621D4 /* NewsAPI.swift in Sources */,
 				F4D656932BC1B7B6005621D4 /* News.swift in Sources */,
