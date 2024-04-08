@@ -15,8 +15,6 @@
 		F421ACB52B9E286000FB5380 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F421ACB42B9E286000FB5380 /* NewsViewModel.swift */; };
 		F4D6568A2BC1B75C005621D4 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F4D656892BC1B75C005621D4 /* SDWebImage */; };
 		F4D6568C2BC1B75C005621D4 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4D6568B2BC1B75C005621D4 /* SDWebImageMapKit */; };
-		F4D6568F2BC1B768005621D4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4D6568E2BC1B768005621D4 /* SnapKit */; };
-		F4D656912BC1B768005621D4 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = F4D656902BC1B768005621D4 /* SnapKit-Dynamic */; };
 		F4D656932BC1B7B6005621D4 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D656922BC1B7B6005621D4 /* News.swift */; };
 		F4D656952BC1B8A6005621D4 /* WebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D656942BC1B8A6005621D4 /* WebServiceManager.swift */; };
 		F4D656972BC24FD7005621D4 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D656962BC24FD7005621D4 /* ArticleTableViewCell.swift */; };
@@ -24,7 +22,21 @@
 		F4D656A22BC25337005621D4 /* UITableView+Dequeueing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D656A02BC25337005621D4 /* UITableView+Dequeueing.swift */; };
 		F4D656A32BC25337005621D4 /* UITableViewCell+CellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D656A12BC25337005621D4 /* UITableViewCell+CellIdentifier.swift */; };
 		F4D656A52BC2559D005621D4 /* ArticleCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D656A42BC2559D005621D4 /* ArticleCellViewModel.swift */; };
+		F4D656B82BC417E8005621D4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4D656B72BC417E8005621D4 /* SnapKit */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F4D656B52BC41715005621D4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F421AC9D2B9E26A300FB5380 /* NewsCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,10 +61,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4D6568F2BC1B768005621D4 /* SnapKit in Frameworks */,
+				F4D656B82BC417E8005621D4 /* SnapKit in Frameworks */,
 				F4D6568C2BC1B75C005621D4 /* SDWebImageMapKit in Frameworks */,
 				F4D6568A2BC1B75C005621D4 /* SDWebImage in Frameworks */,
-				F4D656912BC1B768005621D4 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +165,7 @@
 				F421AC992B9E26A300FB5380 /* Sources */,
 				F421AC9A2B9E26A300FB5380 /* Frameworks */,
 				F421AC9B2B9E26A300FB5380 /* Resources */,
+				F4D656B52BC41715005621D4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -163,8 +175,7 @@
 			packageProductDependencies = (
 				F4D656892BC1B75C005621D4 /* SDWebImage */,
 				F4D6568B2BC1B75C005621D4 /* SDWebImageMapKit */,
-				F4D6568E2BC1B768005621D4 /* SnapKit */,
-				F4D656902BC1B768005621D4 /* SnapKit-Dynamic */,
+				F4D656B72BC417E8005621D4 /* SnapKit */,
 			);
 			productName = NewsCenter;
 			productReference = F421AC9D2B9E26A300FB5380 /* NewsCenter.app */;
@@ -196,7 +207,7 @@
 			mainGroup = F421AC942B9E26A200FB5380;
 			packageReferences = (
 				F4D656882BC1B75C005621D4 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				F4D6568D2BC1B768005621D4 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F4D656B62BC417E8005621D4 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = F421AC9E2B9E26A300FB5380 /* Products */;
 			projectDirPath = "";
@@ -457,12 +468,12 @@
 				minimumVersion = 5.19.1;
 			};
 		};
-		F4D6568D2BC1B768005621D4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		F4D656B62BC417E8005621D4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.1;
+				minimumVersion = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -478,15 +489,10 @@
 			package = F4D656882BC1B75C005621D4 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
 		};
-		F4D6568E2BC1B768005621D4 /* SnapKit */ = {
+		F4D656B72BC417E8005621D4 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F4D6568D2BC1B768005621D4 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = F4D656B62BC417E8005621D4 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		F4D656902BC1B768005621D4 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F4D6568D2BC1B768005621D4 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
